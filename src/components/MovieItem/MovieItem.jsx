@@ -14,7 +14,7 @@ const MovieItem = ({ movie }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const favoriteMovie = useSelector((state) => state.favorite.favorite);
-  const watchlistMovie = useSelector((state) => state.watchlist.watchlist);
+  // const watchlistMovie = useSelector((state) => state.watchlist.watchlist);
 
   const handleClickFavoriteMovie = (e) => {
     e.preventDefault();
@@ -28,17 +28,17 @@ const MovieItem = ({ movie }) => {
     );
   };
 
-  const handleClickWatclistMovie = (e) => {
-    e.preventDefault();
-    dispatch(
-      addOrRemoveWatchlist({
-        id: movie.id,
-        original_title: movie.original_title,
-        poster_path: movie.poster_path,
-        release_date: movie.release_date,
-      })
-    );
-  };
+  // const handleClickWatclistMovie = (e) => {
+  //   e.preventDefault();
+  //   dispatch(
+  //     addOrRemoveWatchlist({
+  //       id: movie.id,
+  //       original_title: movie.original_title,
+  //       poster_path: movie.poster_path,
+  //       release_date: movie.release_date,
+  //     })
+  //   );
+  // };
 
   return (
     <Link to={`/detail-movie/${movie.id}`}>
@@ -67,11 +67,11 @@ const MovieItem = ({ movie }) => {
             className="absolute block hover:block"
             onClick={handleClickWatclistMovie}
           >
-            {watchlistMovie.some((item) => item.id === movie.id) ? (
+            {/* {watchlistMovie.some((item) => item.id === movie.id) ? (
               <IoBookmark className=" text-white text-[23px]" />
             ) : (
               <CiBookmark className="text-white text-[23px]" />
-            )}
+            )} */}
           </div>
         ) : (
           <div className="absolute bottom-20 right-14 ">
@@ -86,7 +86,7 @@ const MovieItem = ({ movie }) => {
               )}
             </div>
 
-            <div
+            {/* <div
               className="absolute block hover:block ml-7"
               onClick={handleClickWatclistMovie}
             >
@@ -95,7 +95,7 @@ const MovieItem = ({ movie }) => {
               ) : (
                 <CiBookmark className="text-white text-[23px]" />
               )}
-            </div>
+            </div> */}
           </div>
         )}
 

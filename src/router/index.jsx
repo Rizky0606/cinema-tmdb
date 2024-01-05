@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar/Navbar";
 import DetailMovie from "../pages/DetailMovie";
 import FavoriteMovie from "../pages/FavoriteMovie";
 import WatchlistMovie from "../pages/WatchlistMovie";
+import SearchMovie from "../pages/SearchMovie";
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
         <Route path="/detail-movie/:id" element={<DetailMovie />} />
         <Route path="/favorite" element={<FavoriteMovie />} />
         <Route path="/watchlist" element={<WatchlistMovie />} />
+        <Route path="/search" element={<SearchMovie />} />
       </Routes>
     </Fragment>
   );

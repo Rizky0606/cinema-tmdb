@@ -14,7 +14,7 @@ const MovieItem = ({ movie }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const favoriteMovie = useSelector((state) => state.favorite.favorite);
-  // const watchlistMovie = useSelector((state) => state.watchlist.watchlist);
+  const watchlistMovie = useSelector((state) => state.watchlist.watchlist);
 
   const handleClickFavoriteMovie = (e) => {
     e.preventDefault();
@@ -28,17 +28,17 @@ const MovieItem = ({ movie }) => {
     );
   };
 
-  // const handleClickWatclistMovie = (e) => {
-  //   e.preventDefault();
-  //   dispatch(
-  //     addOrRemoveWatchlist({
-  //       id: movie.id,
-  //       original_title: movie.original_title,
-  //       poster_path: movie.poster_path,
-  //       release_date: movie.release_date,
-  //     })
-  //   );
-  // };
+  const handleClickWatclistMovie = (e) => {
+    e.preventDefault();
+    dispatch(
+      addOrRemoveWatchlist({
+        id: movie.id,
+        original_title: movie.original_title,
+        poster_path: movie.poster_path,
+        release_date: movie.release_date,
+      })
+    );
+  };
 
   return (
     <Link to={`/detail-movie/${movie.id}`}>
@@ -53,7 +53,7 @@ const MovieItem = ({ movie }) => {
         {/* Handle Favorite Movie */}
         {location.pathname === "/favorite" ? (
           <div
-            className="absolute block hover:block"
+            className="absolute bottom-14 right-1"
             onClick={handleClickFavoriteMovie}
           >
             {favoriteMovie.some((item) => item.id === movie.id) ? (
@@ -64,21 +64,18 @@ const MovieItem = ({ movie }) => {
           </div>
         ) : location.pathname === "/watchlist" ? (
           <div
-            className="absolute block hover:block"
+            className="absolute bottom-14 right-1"
             onClick={handleClickWatclistMovie}
           >
-            {/* {watchlistMovie.some((item) => item.id === movie.id) ? (
+            {watchlistMovie.some((item) => item.id === movie.id) ? (
               <IoBookmark className=" text-white text-[23px]" />
             ) : (
               <CiBookmark className="text-white text-[23px]" />
-            )} */}
+            )}
           </div>
         ) : (
           <div className="absolute bottom-20 right-14 ">
-            <div
-              className="absolute block hover:block"
-              onClick={handleClickFavoriteMovie}
-            >
+            <div className="absolute " onClick={handleClickFavoriteMovie}>
               {favoriteMovie.some((item) => item.id === movie.id) ? (
                 <IoIosHeart className=" text-white text-[23px]" />
               ) : (
@@ -86,16 +83,13 @@ const MovieItem = ({ movie }) => {
               )}
             </div>
 
-            {/* <div
-              className="absolute block hover:block ml-7"
-              onClick={handleClickWatclistMovie}
-            >
+            <div className="absolute  ml-7" onClick={handleClickWatclistMovie}>
               {watchlistMovie.some((item) => item.id === movie.id) ? (
                 <IoBookmark className=" text-white text-[23px]" />
               ) : (
                 <CiBookmark className="text-white text-[23px]" />
               )}
-            </div> */}
+            </div>
           </div>
         )}
 

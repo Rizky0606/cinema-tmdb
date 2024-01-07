@@ -26,7 +26,6 @@ const SearchMovie = () => {
     setIsLoading(false);
   };
 
-  console.log(dataMovies);
   useEffect(() => {
     handleGetSearchMovie();
   }, []);

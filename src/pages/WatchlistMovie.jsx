@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import MovieItem from "../components/MovieItem/MovieItem";
 
 const WatchlistMovie = () => {
-  // const watchlistMovie = useSelector((state) => state.watchlist.watchlist);
+  const watchlistMovie = useSelector((state) => state.watchlist.watchlist);
 
   return (
     <div className="w-full">
@@ -11,7 +11,7 @@ const WatchlistMovie = () => {
         Your Watchlist Movie
       </h1>
       <div className="flex flex-wrap justify-center gap-3 p-5">
-        {/* {watchlistMovie.length < 1 ? (
+        {watchlistMovie.length < 1 ? (
           <div className="w-full my-48">
             <h1 className="text-3xl text-gray-600 text-center font-semibold">
               No watchlist movies
@@ -21,7 +21,7 @@ const WatchlistMovie = () => {
           watchlistMovie.map((movie) => (
             <MovieItem key={movie.id} movie={movie} />
           ))
-        )} */}
+        )}
       </div>
     </div>
   );

@@ -37,7 +37,6 @@ const DetailMovie = () => {
       const response = await axios.get(url, options);
       setDetailMovie(response.data);
       setIsLoading(false);
-      //   console.log(response.data.genres.length);
     } catch (error) {
       console.log(error);
     }
@@ -142,9 +141,9 @@ const DetailMovie = () => {
                       {favoriteMovie.some(
                         (item) => item.id === detailMovie.id
                       ) ? (
-                        <IoIosHeart className=" text-white text-[23px]" />
+                        <IoIosHeart className=" text-white text-[23px] cursor-pointer" />
                       ) : (
-                        <FaRegHeart className="text-white text-[23px]" />
+                        <FaRegHeart className="text-white text-[23px] cursor-pointer" />
                       )}
                     </div>
 
@@ -155,9 +154,9 @@ const DetailMovie = () => {
                       {watchlistMovie.some(
                         (item) => item.id === detailMovie.id
                       ) ? (
-                        <IoBookmark className=" text-white text-[23px]" />
+                        <IoBookmark className=" text-white text-[23px] cursor-pointer" />
                       ) : (
-                        <CiBookmark className="text-white text-[23px]" />
+                        <CiBookmark className="text-white text-[23px] cursor-pointer" />
                       )}
                     </div>
                   </div>
